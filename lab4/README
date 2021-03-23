@@ -1,0 +1,15 @@
+Musat Mihai-Robert
+Grupa 341C1
+
+Pentru realizarea acestui laborator, am implementat simularea software a unei
+retele Benes, algoritmul putand fi urmarit in fisierul benes.cpp. Pentru compilare,
+am inclus in arhiva si un Makefile, iar datele de intrare le-am furnizat dintr-un
+fisier text, data.in, unde am pe prima linie dimensiunea retelei Omega(n), pe linia 
+a doua numarul de perechi(p) care se doresc a fi testate, iar pe urmatoarele p 
+linii se afla sursa si respectiv destinatia care se doresc a fi testate. Rezultatele 
+simularii sunt prezente tot intr-un fisier text, si anume data.out. Ceea ce este
+de important aici este faptul ca n trebuie sa fie de forma 2 ^ k, unde k este
+numar natural si ca input trebuie sa dau mereu o permutare completa, adica pentru
+index intre 0 si n-1 trebuie sa furnizez o valoare, pentru ca algoritmul meu sa 
+functioneze (nu am tratat cazul in care se introduc mai putine perechi decat
+lungimea permutarii).

@@ -1,0 +1,2 @@
+0 -> level 2 : block 0 (C1=0 C0=0) -> level 1 : block 0 (C1=0 C0=0) -> level 0 : block 0 (C1=0 C0=0) -> 0
+2 -> level 2 : block 2 (C1=1 C0=1) -> level 1 : block 1 (C1=1 C0=1) -> level 0 : block 3 (C1=0 C0=0) -> 6

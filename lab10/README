@@ -1,0 +1,17 @@
+Musat Mihai-Robert
+Grupa 341C1
+
+Pentru realizarea acestui laborator, am implementat protocolul MESI 
+pentru pastrarea coerentei memoriilor cache intr-un sistem multiprocesor,
+algoritmul putand fi urmarit in fisierul mesi.cpp. Pentru compilare, am
+inclus in arhiva si un Makefile, iar datele de intrare le-am furnizat
+dintr-un fisier text, data.in, unde am pe prima linie numarul de
+procesoare(n), pe linia a doua numarul de operatii de scriere si citire
+referitoare la un acelasi bloc de memorie cache(nr), iar pe urmatoarele
+nr linii se afla cate o operatie executata, aceasta fiind alcatuita 
+dintr-un id al procesorului care a dat comanda, si respectiv operatia 
+propriu-zisa. Rezultatele obtinute in urma simularii operatiilor la 
+care am facut referire anterior sunt ilustrate intr-o forma tabelara, 
+in care am specificat succesiunea de stari corespunzatoare blocului 
+la nivelul fiecarei memorii cache, actiunile pe magistrala si dispozitivul 
+care furnizeaza datele.

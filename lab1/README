@@ -1,0 +1,65 @@
+Musat Mihai-Robert
+Grupa 341C1
+
+Pentru rezolvarea acestui laborator, am implementat atat algoritmul CRCW-PRAM,
+cat si CREW-PRAM de inmultire paralela a doua matrici, folosind biblioteca OpenMP.
+De asemenea, pentru a usura testarea celor doua surse, am inclus in arhiva si un fisier
+Makefile simplu cu reguli de build si clean.
+
+In linii mari, ambii algoritmi urmeaza aceeasi pasi:
+- populez matricile A si B pe care vreau sa le inmultesc cu elemente random 
+dintr-un interval de forma [min, max], unde min si max reprezinta capetele 
+intervalului si pot fi modificate din cod (pentru simplitate am ales ca elementele
+matricei sa fie in intervalul [0, 100])
+- dau drumul la ceas pentru a masura timpul de executie al algoritmului paralel
+- in functie de tipul de algoritm, calculez in matricea C rezultatul inmultirii
+paralele a matricelor A si B asa cum este descris in indrumar (cu mentiunea ca
+la algoritmul CREW, in pdf este gresit si acel for dupa m trebuie realizat in
+exterior, deoarece noi vrem sa calculam elementele vectorului v in paralel 
+si fiecare procesor sa execute log2(N) pasi pentru reducerea paralela)
+- opresc ceasul
+- pentru a stabili corectitudinea algoritmului, calculez in matricea D 
+rezultatul inmultirii seriale a matricelor A si B si apoi compar element cu
+element matricea C cu matricea D (verific ca modulul diferentei elementelor
+C[i][j] si D[i][j] sa nu fie mai mare decat o toleranta eps=1e-10)
+
+In ceea ce priveste performanta algoritmului, am realizat un script care 
+sa ruleze cei doi algoritmi pentru valori diferite ale variabilelor 
+N = dimensiunea problemei si 
+P = numarul de threaduri (care trebuie sa fie egal cu N^3, conform enuntului)
+
+Pentru CRCW-PRAM, am obtinut urmatorii timpi:
+
+N, P,  time
+1, 1, 0.00001
+2, 8, 0.00038
+4, 64, 0.00216
+8, 512, 0.01074
+16, 4096, 0.06571
+
+Pentru CREW-PRAM, am obtinut urmatorii timpi:
+
+N, P,  time
+1, 1, 0.00001
+2, 8, 0.00059
+4, 64, 0.00387
+8, 512, 0.01546
+16, 4096, 0.13969
+
+Asa cum se poate observa, algoritmul CRCW-PRAM de inmultire a matricelor este
+de aproape 2 ori mai rapid decat algoritmul CREW-PRAM, asa cum era de asteptat,
+deoarece pentru al doilea algoritm, scrierile in memorie se realizeaza de catre
+un singur procesor intr-un ciclu de ceas.
+
+In final, daca am vrea sa construim un algoritm ERCW-PRAM pentru inmultirea de matrici,
+adica sa avem citire exclusiva si scriere concurenta in memorie de catre procesoarele 
+sistemului de calcul, acest lucru nu ar face foarte mult sens. In general, noi dorim 
+sa construim un sistem care sa realizeze citiri concurente ale datelor si instructiunilor
+deoarece in felul acesta reducem timpul de asteptare al procesorului dupa memorie. Daca 
+fiecare procesor citeste cate o instructiune la fiecare ciclu de ceas, obtinem un algoritm
+care nu va produce un race condition si avantajul este ca nu va trebui sa folosim mecanisme
+de sincronizare a firelor de executie, insa obtinem un timp mult mai mare fata de algoritmul
+implementat in cadrul laboratorului, si anume CRCW-PRAM, unde scrierea in memorie se realizeaza
+tot concurent ca si in cazul modelului ERCW-PRAM.
+
+

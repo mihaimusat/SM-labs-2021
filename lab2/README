@@ -1,0 +1,26 @@
+Musat Mihai-Robert
+Grupa 341C1
+
+Pentru rezolvarea acestui laborator, am ales sa studiez un algoritm pe care
+l-am intalnit prima oara la cursul de Metode Numerice din anul 1, si anume, 
+algoritmul Cholesky de descompunere a unei matrici. Pe scurt, ideea algoritmului
+este urmatoarea: daca avem o matrice de numere reale A, simetrica si pozitiv
+definita, atunci exista o matrice inferior triunghiulara L, astfel incat are
+loc relatia A = L * L^T, unde L^T este transpusa matricei L. Dupa ce am 
+obtinut timpul de executie al algoritmului T(n, p) si numarul de operatii 
+executate O(n, p) din articolul stiintific atasat, am trecut la implementarea
+in Python a unui program care sa poata trasa graficele pentru aceste doua marimi,
+dar si pentru celelalte marimi care rezulta din cele doua precum: eficienta E(n, p),
+redundanta R(n, p), utilizare U(n, p), calitatea paralelismului Q(n, p). Insa
+in acest caz, deoarece fiecare dintre aceste marimi este o functie de 2 variabile,
+modul in care trebuie trasate graficele este urmatorul: se tine o valoare fixata
+pentru n si se obtine o functie de p care este reprezentata grafic sau invers,
+se tine o valoare fixata pentru p si se obtine o functie de n care este reprezentata
+grafic, unde n = dimensiunea problemei si p = numarul de procesoare. Ceea ce este
+important de notat la aceste grafice, este ca am ales sa nu am doua axe Oy, ca in 
+exemplul din laborator, ci o singura axa Oy, desi acest lucru poate face ca graficele
+din partea inferioara a figurii sa nu fie la fel de usor de inteles. Totusi, daca
+luam individual graficul pentru fiecare marime in parte, acesta respecta concluziile
+care reies si atunci cand analizam figura din laborator, precum: faptul ca speedup-ul
+are o tendinta de crestere logaritmica, eficienta are o tendinta de descrestere 
+din ce in ce mai mica pe masura ce crestem numarul de procesoare, etc.

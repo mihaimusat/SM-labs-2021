@@ -1,0 +1,30 @@
+Musat Mihai-Robert
+Grupa 341C1
+
+Pentru realizarea acestui laborator, am implementat varianta 
+paralela a algoritmului de sortare Selection Sort, folosind
+biblioteca MPI. Pentru a usura testarea, am inclus in arhiva 
+un Makefile, si un fisier de test, al carui nume trebuie dat 
+ca argument in momentul in care se ruleaza programul. Outputul
+obtinut in urma algoritmului de sortare va fi afisat la stdout.
+Ideea de baza a algoritmului este ca la fiecare moment de timp
+vom retine doua subsiruri: unul care este sortat deja, si unul
+care nu este sortat. La fiecare iteratie, extragem elementul
+minim din vectorul nesortat si il plasam in vectorul sortat, 
+astfel incat relatia de ordine din acest vector sa nu se strice
+si sa putem continua procedeul pana cand la final obtinem 
+vectorul initial sortat. Asa cum se poate observa, algoritmul 
+de mai sus poate fi paralelizat destul de usor. In primul rand, 
+in procesul MASTER (procesul cu rank 0), citesc dimensiunea 
+vectorului (n) si pe urmatoarele n linii citesc elementele 
+vectorului. Apoi, fac broadcast la dimensiunea vectorului 
+pentru a putea fi folosita si de restul proceselor, si impart 
+vectorul astfel incat fiecare proces sa primeasca un subsir de 
+aceeasi dimensiune ca si celelalte procese, reducand astfel 
+complexitatea algoritmului. Dupa ce fac scatter la vectorul 
+initial, fiecare proces va sorta bucata de vector corespunzatoare 
+folosind algoritmul Selection Sort descris mai sus. Astfel, avand 
+toate aceste subsiruri sortate, este garantat ca dupa cel mult 
+log2(num_procs) pasi in care incerc sa concatenez elementele celor
+doua subsiruri, obtin si vectorul initial sortat, vector ce va fi 
+afisat de procesul MASTER.

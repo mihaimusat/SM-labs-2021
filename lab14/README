@@ -1,0 +1,24 @@
+Musat Mihai-Robert
+Grupa 341C1
+
+Pentru realizarea acestui laborator, am implementat varianta 
+paralela a algoritmului de sortare Selection Sort, folosind
+biblioteca Pthreads. Pentru a usura testarea, am inclus in arhiva 
+un Makefile, si un fisier de test, al carui nume trebuie dat 
+ca argument in momentul in care se ruleaza programul. Outputul
+obtinut in urma algoritmului de sortare va fi afisat la stdout.
+Spre deosebire de laboratorul trecut, unde am implementat acelasi
+algoritm folosind biblioteca MPI, aici a fost nevoie sa definesc
+o structura customizata my_thread, in care retin atat o parte din 
+elementele vectorului ce vor fi procesate de thread-ul curent, 
+cat si dimensiunea acestui subsir. Dupa ce impart vectorul in 
+bucati egale, in functie de thread-id, este necesar sa atribui
+fiecarui thread partea din vector pe care o va avea de procesat,
+precum si functia pe care o va avea de executat, in acest caz
+fiind vorba de functia thread_function, care contine algoritmul
+de sortare propriu-zis. Desi am obtinut de la fiecare thread bucata 
+de vector sortata corespunzator, este necesar ca la final, sa realizez
+o imbinare a acestor rezultate partiale. Astfel, voi executa cel mult 
+log2(NUM_THREADS) pasi in care incerc sa concatenez elementele acestor
+subsiruri, la sfarsitul carora garantat voi obtine vectorul initial
+sortat, pe care il afisez la finalul programului.

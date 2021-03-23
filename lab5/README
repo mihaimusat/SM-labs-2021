@@ -1,0 +1,10 @@
+Musat Mihai-Robert
+341C1
+
+Pentru realizarea acestui laborator, am implementat simularea software a unei
+retele Omega, algoritmul putand fi urmarit in fisierul omega.cpp. Pentru compilare,
+am inclus in arhiva si un Makefile, iar datele de intrare le-am furnizat dintr-un
+fisier text, data.in, unde am pe prima linie dimensiunea retelei Omega(n), pe linia 
+a doua numarul de perechi(p) care se doresc a fi testate, iar pe urmatoarele p 
+linii se afla sursa si respectiv destinatia care se doresc a fi testate. Rezultatele 
+simularii sunt prezente tot intr-un fisier text, si anume data.out.

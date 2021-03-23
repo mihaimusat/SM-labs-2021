@@ -1,0 +1,17 @@
+Musat Mihai-Robert
+Grupa 341C1
+
+Pentru realizarea acestui laborator, am implementat varianta 
+paralela a algoritmului de sortare Selection Sort, folosind
+biblioteca OpenMP. Pentru a usura testarea, am inclus in arhiva 
+un Makefile, si un fisier de test, al carui nume trebuie dat 
+ca argument in momentul in care se ruleaza programul. Outputul
+obtinut in urma algoritmului de sortare va fi afisat la stdout.
+Spre deosebire de laboratorul trecut, unde am implementat acelasi
+algoritm folosind biblioteca MPI, aici a fost nevoie sa definesc
+o reducere customizata pentru a extrage la fiecare iteratie 
+elementul minim ca valoare din vectorul partial nesortat. Deoarece 
+este nevoie sa retin si indexul acestui element pentru a interschimba
+la finalul iteratiei elementul de pe pozitia curenta cu elementul de pe 
+pozitia care retine valoarea minima, am creat o structura min_info, 
+in care retin atat indexul elementului, cat si valoarea acestuia. 
